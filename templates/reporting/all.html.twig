@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tickets pour une période{% endblock %}
+
+{% block body %}
+    {% if issues is defined and period is defined %}
+        <div class="container-fluid">
+            <h2 class="text-center mt-5 mb-5">Période de recherche : {{ period }}</h2>
+            <table class="table table-hover table-sm mt-5 mb-3">
+                <thead>
+                <tr>
+                    {% for title, issue in issues|first %}
+                        <th>{{ title }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for data in issues %}
+                    <tr>
+                        {% for issue in data %}
+                            <td>
+                                {% if 'https://redmine.timeonegroup.com' in issue %}
+                                    <a href="{{ issue }}">{{ issue }}</a>
+                                {% else %}
+                                    {{ issue }}
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="mt-5 mb-3">
+                {% include 'search/link.html.twig' %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

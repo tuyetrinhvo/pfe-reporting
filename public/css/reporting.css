@@ -1,0 +1,99 @@
+.block-reporting {
+    width: 900px;
+    margin: auto;
+}
+
+#period_reporting_choice {
+    font-size: large;
+    width: 250px;
+}
+
+select#period_reporting_period {
+    width: 193px;
+}
+
+#period_reporting_choice label {
+    margin-left: 10px;
+}
+
+input#period_reporting_choice_0 {
+    margin-left: 20px;
+}
+
+input#period_reporting_choice_1 {
+    margin-left: 7px;
+}
+
+.submit-div {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.submit-div button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.submit-div-save button {
+    width: 177px;
+    margin-right: 20px;
+}
+
+#actions {
+    width: 260px;
+    margin: auto;
+}
+
+#searchSaved div {
+    width: 350px;
+    margin: auto;
+}
+
+/* Center the loader */
+#loader {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid forestgreen;
+    border-bottom: 10px solid darkseagreen;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading, .charts-arrows-middle, .charts-arrows-top {
+    display: none;
+}
+
+.google-charts {
+    box-shadow: 0 0 5px 5px #F4FAEF;
+    margin: 10px 0px 10px 0px; /* top right bottom left */
+}
+
+.withoutPrio, .charts-plateforme {
+    visibility: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.fa-angle-up, .fa-angle-down {
+    color: lightgray;
+}

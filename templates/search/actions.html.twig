@@ -1,0 +1,21 @@
+<a href="{{ path('show_search_reporting', { 'id': search.id }) }}"
+   class="btn btn-outline-dark btn-sm"
+   role="button"
+   id="reporting-action">
+    Reporting
+</a>
+<a href="{{ path('export_search_reporting', { 'id': search.id }) }}"
+   class="btn btn-outline-dark btn-sm"
+   role="button">
+    Exporter
+</a>
+<a href="{{ path('delete_search', { 'id': search.id }) }}"
+   class="btn btn-outline-danger btn-sm"
+   role="button">
+    Supprimer
+</a>
+<a href="{{ path('search_all_issues', { 'id': search.id }) }}"
+   class="btn btn-outline-dark btn-sm"
+   role="button">
+    Afficher
+</a>

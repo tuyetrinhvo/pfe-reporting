@@ -1,0 +1,104 @@
+{% if charts is defined %}
+    {% if charts is not null %}
+        <div class="d-inline-flex flex-column m-0 float-right">
+            <div class="m-0 charts-arrows-top" id="div-charts-arrows-top">
+                <a href="#reporting-{{ form is defined ? 'form' : 'infos' }}"
+                   class="btn btn-light float-right"
+                   role="button"
+                   id="link-top-arrow-up">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+            </div>
+            <div class="m-0 charts-arrows-top">
+                <a href="#reporting-checkbox"
+                   class="btn btn-light float-right"
+                   role="button"
+                   id="link-top-arrow-down">
+                    <i class="fas fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+        <div id="reporting-charts" class="block-reporting mb-3">
+            <hr/>
+            <div class="text-center" id="reporting-priority-order">
+                <input type="checkbox" id="priority-order" name="priority-order" value="priority-order" checked/>
+                <label for="priority-order"> Ordre de priorité</label>
+            </div>
+            <div class="d-flex justify-content-sm-between" id="first-chart">
+                <div class="google-charts withoutPrio" id="ticketsTraqueur"></div>
+                <div class="google-charts withPrio" id="ticketsTraqueurPrio"></div>
+                <div class="google-charts withoutPrio" id="heuresTraqueur"></div>
+                <div class="google-charts withPrio" id="heuresTraqueurPrio"></div>
+            </div>
+            <div class="d-flex justify-content-sm-between">
+                <div class="google-charts withoutPrio" id="ticketsPlateforme"></div>
+                <div class="google-charts withPrio" id="ticketsPlateformePrio"></div>
+                <div class="google-charts withoutPrio" id="heuresPlateforme"></div>
+                <div class="google-charts withPrio" id="heuresPlateformePrio"></div>
+            </div>
+        </div>
+        <div class="d-inline-flex flex-column m-0 float-right" id="div-arrows-middle">
+            <div class="m-0 charts-arrows-middle">
+                <a href="#reporting-charts"
+                   class="btn btn-light float-right"
+                   role="button"
+                   id="link-chart-arrow-up">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+            </div>
+            <div class="m-0 charts-arrows-middle" id="div-charts-arrows-middle">
+                <a href="#reporting-{{ form is defined ? 'end' : 'link' }}"
+                   class="btn btn-light float-right"
+                   role="button"
+                   id="link-chart-arrow-down">
+                    <i class="fas fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+
+        {% set array = ['Console', 'Infra', 'LMT', 'MediaBuying', 'Nativious',
+            'Performance', 'Publishing', 'RGPD', 'Wavecy', 'Wordpress'] %}
+        <div class="block-reporting mt-3" id="reporting-checkbox">
+            <hr/>
+            <div class="d-flex justify-content-between">
+                {% for item in array %}
+                    <div>
+                        <input type="checkbox" id="input-charts-{{ item|lower }}"
+                               name="charts-{{ item|lower }}" value="charts-{{ item|lower }}"/>
+                        <label for="charts-{{ item|lower }}"> {{ item }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            <hr/>
+        </div>
+
+        {% for item in array %}
+            <div id="reporting-charts-{{ item|lower }}" class="block-reporting">
+                <div class="d-flex justify-content-sm-between">
+                    <div class="google-charts charts-plateforme withoutPrio" id="tickets{{ item }}"></div>
+                    <div class="google-charts charts-plateforme withPrio" id="tickets{{ item }}Prio"></div>
+                    <div class="google-charts charts-plateforme withoutPrio" id="heures{{ item }}"></div>
+                    <div class="google-charts charts-plateforme withPrio" id="heures{{ item }}Prio"></div>
+                </div>
+            </div>
+        {% endfor %}
+        <button class="btn btn-light float-right" id="bt-chart-arrow-up"><i class="fas fa-angle-up"></i></button>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            {% for key, chart in charts %}
+            {{ gc_draw([ chart ],[ key ]) }}
+            {% endfor %}
+        </script>
+    {% else %}
+        <div class="block-reporting">
+            <hr/>
+            <h2 class="text-center mb-5 mt-5">
+                Graphique ne peut pas être affiché !
+            </h2>
+            <h4 class="text-center mb-5">
+                Car les données pour créer de graphique ne sont pas correctes ou manquantes.
+            </h4>
+        </div>
+    {% endif %}
+{% endif %}
+

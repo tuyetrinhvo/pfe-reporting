@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherches enregistrées{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% include 'search/table.html.twig' %}
+        {% include 'reporting/infos.html.twig' %}
+        {% include 'reporting/chart.html.twig' %}
+        <div class="block-reporting mt-5">
+            {% if search is defined %}
+                <hr/>
+                {% include 'search/link.html.twig' %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/reporting.js') }}"></script>
+{% endblock %}
+

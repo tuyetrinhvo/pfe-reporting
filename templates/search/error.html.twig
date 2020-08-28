@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="block-reporting mt-5">
+            {% if error is defined %}
+                <h1 class="text-center mb-5">{{ error }}</h1>
+            {% endif %}
+            <hr/>
+            {% if 'Aucune recherche sauvegardée' in error %}
+                <div class="text-center mt-5">
+                    <a class="btn btn-link" role="button"
+                       href="{{ path('reporting') }}">
+                        Aller au formulaire de recherche
+                    </a>
+                </div>
+            {% else %}
+                {% include 'search/link.html.twig' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

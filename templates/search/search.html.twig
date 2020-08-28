@@ -1,0 +1,11 @@
+{% if search is defined %}
+    <div id="searchSaved" class="block-reporting">
+        <h2 class="text-center mt-5 mb-5">
+            Période de recherche sauvegardée : {{ search.name }}
+        </h2>
+        <div class="d-flex justify-content-between mt-2 mb-5">
+            {% include 'search/actions.html.twig' %}
+        </div>
+    </div>
+{% endif %}
+
