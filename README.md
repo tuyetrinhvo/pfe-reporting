@@ -11,4 +11,4 @@ bin/console doctrine:schema:create
 ---
 ## URL
 
-http://127.0.0.1:8000/reporting
+https://reporting.ttvo.fr/
