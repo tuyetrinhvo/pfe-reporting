@@ -133,8 +133,7 @@ window.addEventListener('load', () => {
         let linkTopArrowDown = document.getElementById('link-top-arrow-down');
         let linkTopArrowUp = document.getElementById('link-top-arrow-up');
 
-        let arrayPlateforme = ['console', 'infra', 'lmt', 'mediabuying', 'nativious',
-            'performance', 'publishing', 'rgpd', 'wavecy', 'wordpress'];
+        let arrayPlateforme = ['console', 'native', 'perf', 'publish', 'support', 'wordpress'];
         let eltsPlateforme = [];
         let allPlatformChartsInput = [];
         for (let elt of arrayPlateforme) {
@@ -250,6 +249,24 @@ window.addEventListener('load', () => {
             divChartsArrowTop.style.display = "none";
         });
         // --- End buttons and links --- //
+    }
+    // --- End chart --- //
+
+    // Display none or block link timeSpent undefined on click
+    let eltHTSUndefined = document.getElementById('infos-temp-spent-show');
+    let divTSUndefined = document.getElementById('infos-temp-spent-hide');
+    if (eltHTSUndefined !== null) {
+        eltHTSUndefined.addEventListener('click', () => {
+            if (divTSUndefined.style.display === "none") {
+                divTSUndefined.style.display = "block";
+            } else {
+                divTSUndefined.style.display = "none";
+            }
+
+        });
+        divTSUndefined.addEventListener('click', () => {
+            divTSUndefined.style.display = "none";
+        });
     }
     // --- End chart --- //
 });

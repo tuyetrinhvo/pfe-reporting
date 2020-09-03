@@ -64,9 +64,6 @@ class SearchController extends AbstractController
             $entityManager->flush();
         }
 
-        // remove customDataReporting session which is saved in ReportingController
-        $this->get('session')->remove('customDataReporting');
-
         return $this->render('reporting/reporting.html.twig', [
             'form' => $form->createView(),
             'search' => $search
@@ -199,7 +196,7 @@ class SearchController extends AbstractController
         $allIssuesWithPagination = $paginator->paginate(
             $dataOfOneSearch['issues'],
             $request->query->getInt('page', 1),
-            8
+            10
         );
 
         return $this->render('reporting/all.html.twig', [

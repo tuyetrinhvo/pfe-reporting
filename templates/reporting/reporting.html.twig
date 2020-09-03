@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="container">
-        <div class="block-reporting" id="reporting-form">
+        <div id="reporting-form">
             {% if form is defined %}
                 <h1 class="mt-5 mb-5 text-center">Choisissez les périodes de recherche : </h1>
 
@@ -26,7 +26,7 @@
                     </button>Le téléchargement est en cours...
                 </div>
 
-                <div class="d-flex justify-content-end block-reporting" id="div-link-to-searchList">
+                <div class="d-flex justify-content-end" id="div-link-to-searchList">
                     <a class="btn btn-outline-dark" id="periods-saved-link" role="button"
                        href="{{ path('list_searches') }}">
                         Périodes de recherche sauvegardées
@@ -47,7 +47,7 @@
                         <div class="mb-3 form-group">
                             {{ form_row(form.period) }}
                         </div>
-                        <div class="text-center">
+                        <div class="text-center" id="submit-buttons">
                             <div class="d-flex justify-content-between submit-div">
                                 {{ form_row(form.export, {
                                     'label': 'Export csv',
@@ -88,7 +88,6 @@
         {% include 'search/search.html.twig' %}
         <div id="reporting-end"></div>
     </div>
-
 
 {% endblock %}
 

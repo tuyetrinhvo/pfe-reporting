@@ -1,6 +1,6 @@
 {% if name_of_period is defined and reporting is defined and reporting is not null %}
     <button class="btn btn-light float-right" id="bt-chart-arrow-down"><i class="fas fa-angle-down"></i></button>
-    <div id="reporting-infos" class="block-reporting">
+    <div id="reporting-infos">
         <h2 class="text-center mt-5 mb-4">
             Période de recherche : {{ name_of_period }}
         </h2>
@@ -14,16 +14,25 @@
         <h4 class="mb-3 mt-4"> Nombre de tous les tickets : {{ reporting.nbIssues }}.</h4>
         <h4 class="mb-3">Temps total passé sur tous les tickets
             : {{ reporting.totalTimeSpend }} {{ reporting.totalTimeSpend > 1 ? ' heures.' : ' heure.' }}</h4>
-        {% if reporting.issuesTimeUndefined is defined and reporting.issuesTimeUndefined|length > 0 %}
-            <h4 class="mb-2">Nombre de tickets dont le temps passé n'est pas défini : {{ reporting.nbIssuesTimeUndefined }}.</h4>
-            <h4 class="text-center mt-5 mb-3">Liste des tickets dont le temps passé n'est pas défini : </h4>
-            <div class="text-center mb-5">
-                {% for value in reporting.issuesTimeUndefined %}
-                    <a href="{{ value }}" target="_blank">{{ value }}</a> ;
-                {% endfor %}
-            </div>
-        {% else %}
-            <h4 class="mb-5">Aucun ticket dont le temps passé n'est pas défini !</h4>
+        {% if 'fermé' in name_of_period %}
+            {% if reporting.issuesTimeUndefined is defined and reporting.issuesTimeUndefined|length > 0 %}
+                <h4 class="mb-2" title="Cliquez pour afficher/masquer la liste" id="infos-temp-spent-show">
+                    Nombre de tickets dont le temps passé n'est pas défini
+                    : {{ reporting.nbIssuesTimeUndefined }}.
+                </h4>
+                <div id="infos-temp-spent-hide" title="Cliquez pour masquer cette liste">
+                    <h4 class="text-center mt-5 mb-3" title="Cliquez pour masquer cette liste">
+                        Liste des tickets dont le temps passé n'est pas défini.
+                    </h4>
+                    <div class="text-center mb-3">
+                        {% for value in reporting.issuesTimeUndefined %}
+                            <a href="#">{{ value }}</a> ;
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <h4 class="mb-3">Aucun ticket dont le temps passé n'est pas défini !</h4>
+            {% endif %}
         {% endif %}
     </div>
 {% endif %}

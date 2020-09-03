@@ -60,8 +60,8 @@ class PeriodReportingType extends AbstractType
             ])
             ->add('period', ChoiceType::class, [
                 'choices' => [
-                    'entre' => 'custom_range',
                     'aujourd\'hui' => 'today',
+                    'entre' => 'custom_range',
                     'hier' => 'yesterday',
                     'cette semaine' => 'this_week',
                     'semaine dernière' => 'last_week',

@@ -1,8 +1,3 @@
-.block-reporting {
-    width: 900px;
-    margin: auto;
-}
-
 #period_reporting_choice {
     font-size: large;
     width: 250px;
@@ -12,16 +7,24 @@ select#period_reporting_period {
     width: 193px;
 }
 
-#period_reporting_choice label {
-    margin-left: 10px;
-}
-
-input#period_reporting_choice_0 {
+div#period_reporting_choice {
     margin-left: 20px;
 }
 
+#period_reporting_choice label {
+    width: 209px;
+}
+
+input#period_reporting_choice_0 {
+    margin-right: 10px;
+}
+
 input#period_reporting_choice_1 {
-    margin-left: 7px;
+    margin-right: 10px;
+}
+
+div#submit-buttons {
+    margin-right: 10px;
 }
 
 .submit-div {
@@ -77,13 +80,12 @@ input#period_reporting_choice_1 {
     100% { transform: rotate(360deg); }
 }
 
-#loading, .charts-arrows-middle, .charts-arrows-top {
+#loading, .charts-arrows-middle, .charts-arrows-top, #infos-temp-spent-hide {
     display: none;
 }
 
 .google-charts {
-    box-shadow: 0 0 5px 5px #F4FAEF;
-    margin: 10px 0px 10px 0px; /* top right bottom left */
+    margin: auto;
 }
 
 .withoutPrio, .charts-plateforme {

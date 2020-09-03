@@ -20,3 +20,6 @@
 ###< symfony/phpunit-bridge ###
 
 .idea
+composer.lock
+symfony.lock
+/migrations

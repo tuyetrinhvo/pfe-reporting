@@ -25,7 +25,7 @@ class ReportingCsvExporter
 
             $handle = fopen('php://output', 'w');
 
-            $headers = array_keys($issues[0]);
+            $headers = ['Numéro', 'Priorité', 'Type de tracker', 'Plateforme', 'Crée le', 'Fermé le', 'Temps passé', 'Lien'];
 
             fputcsv($handle, $headers, ';', '"');
 
