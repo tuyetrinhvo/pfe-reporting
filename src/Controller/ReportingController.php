@@ -17,10 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ReportingController extends AbstractController
 {
-
     /**
      *
-     * @Route("reporting", name="reporting")
+     * @Route("/", name="reporting")
      *
      * @param Request $request
      * @param ReportingCsvExporter $csvExporter

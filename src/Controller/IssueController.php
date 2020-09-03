@@ -5,22 +5,11 @@ namespace App\Controller;
 use App\Entity\Issue;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class IssueController extends AbstractController
 {
     /**
-     * @Route("/issue/index", name="issue")
-     */
-    public function index()
-    {
-        return $this->render('issue/index.html.twig', [
-            'controller_name' => 'IssueController',
-        ]);
-    }
-
-    /**
-     * @Route("/issue", name="create_issue")
+     *
      * @throws \Exception
      */
     public function createIssue(): Response

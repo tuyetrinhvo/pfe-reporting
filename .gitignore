@@ -22,4 +22,5 @@
 .idea
 composer.lock
 symfony.lock
-/migrations
+composer.phar
+migrations
