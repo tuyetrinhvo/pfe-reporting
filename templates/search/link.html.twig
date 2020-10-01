@@ -1,13 +1,19 @@
-<div class="d-flex justify-content-between mb-5" id="reporting-link">
-    <a class="btn btn-link" role="button"
-       href="{{ path('list_searches') }}">
-        Tous les périodes de recherche sauvegardées
-    </a>
-    {% if issues is defined %}
-        {{ knp_pagination_render(issues) }}
-    {% endif %}
-    <a class="btn btn-link" role="button"
-       href="{{ path('reporting') }}">
-        Aller au formulaire de recherche
-    </a>
+<div class="row mb-5" id="reporting-link">
+    <div class="col-lg-4 reporting-link-left">
+        <a class="btn btn-link" role="button"
+           href="{{ path('list_searches') }}">
+            Tous les périodes de recherche sauvegardées
+        </a>
+    </div>
+    <div class="col-lg-5 d-flex justify-content-center reporting-link-knp">
+        {% if issues is defined %}
+            {{ knp_pagination_render(issues) }}
+        {% endif %}
+    </div>
+    <div class="col-lg-3 reporting-link-right">
+        <a class="btn btn-link" role="button"
+           href="{{ path('reporting') }}">
+            Aller au formulaire de recherche
+        </a>
+    </div>
 </div>

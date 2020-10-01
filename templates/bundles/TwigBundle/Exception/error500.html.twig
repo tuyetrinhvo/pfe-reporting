@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reporting - Erreurs 500{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="mt-5">
+            <h1 class="text-center mb-5">Oups! Une Erreur Interne du Serveur</h1>
+            <h2 class="text-center mb-5">Le serveur a renvoyé une "500 Erreur Interne du Serveur".</h2>
+            <h3 class="text-center mb-5">
+                Nous allons la réparer dès que possible.
+            </h3>
+            <h3 class="text-center mb-5">
+                Nous sommes désolées pour le dérangement !
+            </h3>
+            <hr/>
+                {% include 'search/link.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

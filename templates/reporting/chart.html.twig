@@ -24,24 +24,24 @@
                     </a>
                 </div>
             </div>
-            <div class="container mb-3" id="first-chart">
-                <div class="row justify-content-start">
-                    <div class="google-charts withoutPrio col-md-9 col-lg-5" id="ticketsTracker"></div>
-                    <div class="google-charts withoutPrio col-md-9 col-lg-5" id="hoursTracker"></div>
+            <div class="container mb-3 charts-margin" id="first-chart">
+                <div class="row">
+                    <div class="google-charts withoutPrio col-lg-6" id="ticketsTracker"></div>
+                    <div class="google-charts withoutPrio col-lg-6" id="hoursTracker"></div>
                 </div>
-                <div class="row justify-content-start">
-                    <div class="google-charts withPrio col-md-9 col-lg-5" id="ticketsTrackerPrio"></div>
-                    <div class="google-charts withPrio col-md-9 col-lg-5" id="hoursTrackerPrio"></div>
+                <div class="row">
+                    <div class="google-charts withPrio col-lg-6" id="ticketsTrackerPrio"></div>
+                    <div class="google-charts withPrio col-lg-6" id="hoursTrackerPrio"></div>
                 </div>
             </div>
-            <div class="container mb-3">
-                <div class="row justify-content-start">
-                    <div class="google-charts withoutPrio col-md-9 col-lg-5" id="ticketsPlatform"></div>
-                    <div class="google-charts withoutPrio col-md-9 col-lg-5" id="hoursPlatform"></div>
+            <div class="container mb-3 charts-margin">
+                <div class="row">
+                    <div class="google-charts withoutPrio col-lg-6" id="ticketsPlatform"></div>
+                    <div class="google-charts withoutPrio col-lg-6" id="hoursPlatform"></div>
                 </div>
-                <div class="row justify-content-start">
-                    <div class="google-charts withPrio col-md-9 col-lg-5" id="ticketsPlatformPrio"></div>
-                    <div class="google-charts withPrio col-md-9 col-lg-5" id="hoursPlatformPrio"></div>
+                <div class="row">
+                    <div class="google-charts withPrio col-lg-6" id="ticketsPlatformPrio"></div>
+                    <div class="google-charts withPrio col-lg-6" id="hoursPlatformPrio"></div>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
             <hr/>
             <div class="d-flex justify-content-between">
                 {% for item in array %}
-                    <div>
+                    <div class="text-center">
                         <input type="checkbox" id="input-charts-{{ item|lower }}"
                                name="charts-{{ item|lower }}" value="charts-{{ item|lower }}"/>
                         <label for="charts-{{ item|lower }}"> {{ item }}</label>
@@ -78,16 +78,15 @@
             </div>
             <hr/>
         </div>
-
         {% for item in array %}
-            <div class="container mb-3" id="reporting-charts-{{ item|lower }}">
-                <div class="row justify-content-start">
-                    <div class="google-charts charts-plateforme withoutPrio col-md-9 col-lg-5" id="tickets{{ item }}"></div>
-                    <div class="google-charts charts-plateforme withoutPrio col-md-9 col-lg-5" id="hours{{ item }}"></div>
+            <div class="container charts-margin mb-3" id="reporting-charts-{{ item|lower }}">
+                <div class="row">
+                    <div class="google-charts charts-plateforme withoutPrio col-lg-6" id="tickets{{ item }}"></div>
+                    <div class="google-charts charts-plateforme withoutPrio col-lg-6" id="hours{{ item }}"></div>
                 </div>
-                <div class="row justify-content-start">
-                    <div class="google-charts charts-plateforme withPrio col-md-9 col-lg-5" id="tickets{{ item }}Prio"></div>
-                    <div class="google-charts charts-plateforme withPrio col-md-9 col-lg-5" id="hours{{ item }}Prio"></div>
+                <div class="row">
+                    <div class="google-charts charts-plateforme withPrio col-lg-6" id="tickets{{ item }}Prio"></div>
+                    <div class="google-charts charts-plateforme withPrio col-lg-6" id="hours{{ item }}Prio"></div>
                 </div>
             </div>
         {% endfor %}

@@ -1,7 +1,7 @@
 {% if name_of_period is defined and reporting is defined and reporting is not null %}
     <button class="btn btn-light float-right" id="bt-chart-arrow-down"><i class="fas fa-angle-down"></i></button>
     <div id="reporting-infos">
-        <h2 class="text-center mt-5 mb-4">
+        <h2 class="{{ form is defined ? '' : 'text-center' }} mt-5 mb-5">
             Période de recherche : {{ name_of_period }}
         </h2>
         {% if search is defined %}
@@ -11,10 +11,10 @@
                 </div>
             </div>
         {% endif %}
-        <h4 class="mb-3 mt-4"> Nombre de tous les tickets : {{ reporting.nbIssues }}.</h4>
+        <h4 class="mb-3 mt-4"> Nombre total des tickets {{ 'fermé' in name_of_period ? 'fermés' : 'créés'}} : {{ reporting.nbIssues }}.</h4>
+        {% if 'fermé' in name_of_period %}
         <h4 class="mb-3">Temps total passé sur tous les tickets
             : {{ reporting.totalTimeSpend }} {{ reporting.totalTimeSpend > 1 ? ' heures.' : ' heure.' }}</h4>
-        {% if 'fermé' in name_of_period %}
             {% if reporting.issuesTimeUndefined is defined and reporting.issuesTimeUndefined|length > 0 %}
                 <h4 class="mb-2" title="Cliquez pour afficher/masquer la liste" id="infos-temp-spent-show">
                     Nombre de tickets dont le temps passé n'est pas défini
@@ -26,7 +26,7 @@
                     </h4>
                     <div class="text-center mb-3">
                         {% for value in reporting.issuesTimeUndefined %}
-                            <a href="#">{{ value }}</a> ;
+                            <a id="link-to-issue" href="#">{{ value }}</a> ;
                         {% endfor %}
                     </div>
                 </div>
@@ -36,4 +36,3 @@
         {% endif %}
     </div>
 {% endif %}
-

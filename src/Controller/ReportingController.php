@@ -62,7 +62,7 @@ class ReportingController extends AbstractController
                 ? $dateBegin . ' et ' . $dateEnd
                 : ($data['begin'] ? $dateBegin : $dateEnd);
 
-            $nameOfPeriod = $data['choice'] ? 'créé le ' . $period : 'fermé le ' . $period;
+            $nameOfPeriod = $data['choice'] ? 'tickets créés le ' . $period : 'tickets fermés le ' . $period;
 
             $issues = $dataBuilder->getIssues($data);
 

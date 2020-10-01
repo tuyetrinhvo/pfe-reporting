@@ -1,23 +1,22 @@
 {% block navbar %}
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#75B883;">
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            Outil Reporting
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('list_searches') }}">Liste des recherches</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ path('reporting') }}">Formulaire de recherche</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color:#cedce9;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand ml-3" href="https://ttvo.fr" target="_blank">
+            <img src="{{ asset('img/logotrinh_bleu.png') }}" class="p-0 m-0" width="40" height="40" alt="logo trinh">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link navbar-brand" href="{{ path('list_searches') }}">Liste de recherches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-brand" href="{{ path('reporting') }}">Outil de reporting</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 {% endblock %}

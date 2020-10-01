@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reporting{% endblock %}
+{% block title %}Reporting - Formulaire de recherche{% endblock %}
 
 {% block body %}
 
@@ -40,14 +40,28 @@
                         {{ form_errors(form) }}
                     </div>
 
-                    <div class="text-center d-flex justify-content-between mt-4">
-                        <div class="form-group">
+                    <div class="text-center d-flex align-content-between flex-wrap mt-4">
+                        <div class="form-group mr-auto ml-auto" id="choice-block">
                             {{ form_row(form.choice) }}
                         </div>
-                        <div class="mb-3 form-group">
-                            {{ form_row(form.period) }}
+                        <div class="mr-auto ml-auto" id="select-block">
+                            <div class="mb-3 form-group">
+                                {{ form_row(form.period) }}
+                            </div>
+                            <div class="form-group">
+                                <div class="d-flex justify-content-center mt-3 mb-3">
+
+                                    <div class="mb-3" id="form-date-begin">
+                                        {{ form_row(form.begin) }}
+                                    </div>
+                                    <div id="between-date" class="p-3"></div>
+                                    <div class="mb-3" id="form-date-end">
+                                        {{ form_row(form.end) }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-center" id="submit-buttons">
+                        <div class="mr-auto ml-auto" id="submit-buttons">
                             <div class="d-flex justify-content-between submit-div">
                                 {{ form_row(form.export, {
                                     'label': 'Export csv',
@@ -64,17 +78,6 @@
                                     'attr': {'class': 'btn btn-outline-dark btn-sm'}
                                 }) }}
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center mt-3 mb-3">
-
-                        <div class="mb-3" id="form-date-begin">
-                            {{ form_row(form.begin) }}
-                        </div>
-                        <div id="between-date" class="p-3"></div>
-                        <div class="mb-3" id="form-date-end">
-                            {{ form_row(form.end) }}
                         </div>
                     </div>
                     {{ form_end(form) }}

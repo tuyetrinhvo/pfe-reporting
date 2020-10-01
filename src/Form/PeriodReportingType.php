@@ -50,8 +50,8 @@ class PeriodReportingType extends AbstractType
             ])
             ->add('choice', ChoiceType::class, [
                 'choices' => [
-                    'Avec la date de fermeture' => false,
-                    'Avec la date de création' => true,
+                    'Tickets fermés' => false,
+                    'Tickets créés' => true,
                 ],
                 'expanded' => true,
                 'multiple' => false,
@@ -60,8 +60,8 @@ class PeriodReportingType extends AbstractType
             ])
             ->add('period', ChoiceType::class, [
                 'choices' => [
-                    'aujourd\'hui' => 'today',
                     'entre' => 'custom_range',
+                    'aujourd\'hui' => 'today',
                     'hier' => 'yesterday',
                     'cette semaine' => 'this_week',
                     'semaine dernière' => 'last_week',

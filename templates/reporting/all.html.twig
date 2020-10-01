@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tickets pour une période{% endblock %}
+{% block title %}Reporting - Tickets pour une période{% endblock %}
 
 {% block body %}
     {% if issues is defined and period is defined %}
         <div class="container">
             <h2 class="text-center mt-5 mb-5">Période de recherche : {{ period }}</h2>
+            <div class="table-responsive">
             <table class="table table-hover table-sm mt-5 mb-3">
                 <thead>
                 <tr class="text-center">
@@ -15,6 +16,7 @@
                     <th>Plateforme</th>
                     <th>Crée le</th>
                     <th>Fermé le</th>
+                    <th>Status</th>
                     <th>Temps passé</th>
                     <th>Lien</th>
                 </tr>
@@ -28,12 +30,14 @@
                         <td>{{ issue.platform }}</td>
                         <td>{{ issue.createdOn }}</td>
                         <td>{{ issue.closedOn }}</td>
+                        <td>{{ issue.statut }}</td>
                         <td>{{ issue.timeSpent }}</td>
                         <td><a href="#">{{ issue.link }}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+            </div>
             <div class="mt-5 mb-3">
                 {% include 'search/link.html.twig' %}
             </div>

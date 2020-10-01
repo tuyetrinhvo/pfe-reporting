@@ -43,7 +43,7 @@ class Issue
     private $createdOn;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $closedOn;
 
@@ -56,6 +56,11 @@ class Issue
      * @ORM\Column(type="string", length=255)
      */
     private $link;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $statut;
 
 
     public function getId(): ?int
@@ -123,16 +128,20 @@ class Issue
         return $this;
     }
 
-    public function getClosedOn(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getClosedOn()
     {
         return $this->closedOn;
     }
 
-    public function setClosedOn(\DateTimeInterface $closedOn): self
+    /**
+     * @param mixed $closedOn
+     */
+    public function setClosedOn($closedOn): void
     {
         $this->closedOn = $closedOn;
-
-        return $this;
     }
 
     public function getTimeSpent(): ?float
@@ -155,6 +164,18 @@ class Issue
     public function setLink(string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }

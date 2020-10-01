@@ -51,6 +51,8 @@ class IssueRepository extends ServiceEntityRepository
             ->andWhere('i.closedOn BETWEEN :dateBegin AND :dateEnd')
             ->setParameter('dateBegin', $dateBegin)
             ->setParameter(':dateEnd', $dateEnd)
+            ->andWhere('i.statut = :statut')
+            ->setParameter(':statut', 'fermé')
             ->orderBy('i.closedOn', 'DESC')
             ->getQuery()
             ->getArrayResult();
@@ -65,6 +67,8 @@ class IssueRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('i')
             ->andWhere('i.closedOn LIKE :date')
             ->setParameter('date', '%'. $date . '%')
+            ->andWhere('i.statut = :statut')
+            ->setParameter(':statut', 'fermé')
             ->orderBy('i.closedOn', 'DESC')
             ->getQuery()
             ->getArrayResult();

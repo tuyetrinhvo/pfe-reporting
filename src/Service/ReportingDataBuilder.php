@@ -52,7 +52,6 @@ class ReportingDataBuilder
             } elseif ($issue['timeSpent'] == 0) {
                 $issuesTimeSpendUndefined[] = $issue['link'];
             }
-
         }
 
         $nbIssuesTimeSpendUndefined = count($issuesTimeSpendUndefined);
@@ -61,7 +60,7 @@ class ReportingDataBuilder
             'nbIssues' => $nbIssues,
             'totalTimeSpend' => $totalTimeSpend,
             'issuesTimeUndefined' => $issuesTimeSpendUndefined,
-            'nbIssuesTimeUndefined' => $nbIssuesTimeSpendUndefined
+            'nbIssuesTimeUndefined' => $nbIssuesTimeSpendUndefined,
         ];
     }
 
@@ -290,8 +289,6 @@ class ReportingDataBuilder
         $chart->getData()->setArrayToDataTable($dataForChart);
         $chart->getOptions()->getTitleTextStyle()->setFontSize(13);
         $chart->getOptions()->getBar()->setGroupWidth(15);
-        $chart->getOptions()->setWidth(460);
-        $chart->getOptions()->setHeight(300);
         $chart->getOptions()->getHAxis()->setSlantedText(true);
         $chart->getOptions()->getHAxis()->setSlantedTextAngle(45);
         if (!empty($options)) {
@@ -450,7 +447,7 @@ class ReportingDataBuilder
 
         foreach ($issues as $key => $issue){
             $issues[$key]['createdOn'] = $issue['createdOn']->format('d/m/Y H:i:s');
-            $issues[$key]['closedOn'] = $issue['closedOn']->format('d/m/Y H:i:s');
+            $issues[$key]['closedOn'] = $issue['closedOn'] !== null ? $issue['closedOn']->format('d/m/Y H:i:s') : null;
             unset($issues[$key]['id']);
         }
 
